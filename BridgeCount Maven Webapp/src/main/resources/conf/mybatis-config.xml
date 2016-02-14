@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration 
+PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-config.dtd">
+<!-- author Shixiangren
+	 since 2016.2.14
+	 配置mybatis -->
+<configuration>
+        <!-- 命名空间 -->
+    <typeAliases>
+   		 <typeAlias alias="count_cal" type="model.count_cal"/>
+         <typeAlias alias="count_desk" type="model.count_desk"/>.
+         <typeAlias alias="count_match_team" type="model.count_match_team"/>
+         <typeAlias alias="count_match" type="model.count_match"/>
+         <typeAlias alias="count_mate" type="model.count_mate"/>
+         <typeAlias alias="count_score" type="model.count_score"/>
+         <typeAlias alias="count_team" type="model.count_team"/>
+    </typeAliases>
+
+    <!-- 映射map -->
+    <mappers>
+    </mappers>
+</configuration>
