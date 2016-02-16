@@ -8,6 +8,8 @@
 
 package model;
 
+import java.util.Date;
+
 public class count_match {
 
 	private int match_id;
@@ -15,6 +17,8 @@ public class count_match {
 	private String match_name;
 	
 	private int match_cardnum;
+	
+	private Date match_time;
 
 	/**
 	 * @return the match_id
@@ -57,6 +61,21 @@ public class count_match {
 	public void setMatch_cardnum(int match_cardnum) {
 		this.match_cardnum = match_cardnum;
 	}
+
+	/**
+	 * @return the match_time
+	 */
+	public Date getMatch_time() {
+		return match_time;
+	}
+
+	/**
+	 * @param match_time the match_time to set
+	 */
+	public void setMatch_time(Date match_time) {
+		this.match_time = match_time;
+	}
+	
 	
 	
 }
