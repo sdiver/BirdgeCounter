@@ -15,6 +15,9 @@
  */
 package service;
 
+import java.util.Date;
+import java.util.Map;
+
 /**
 
  * @ClassName: MatchManagerService
@@ -31,4 +34,9 @@ package service;
  */
 public interface MatchManagerService {
 
+	public Map<Object, Object> matchlist();
+	
+	public Map<Object, Object> sitdown(int matchid, int deskid, int desknum, int ocpositon, int playerid, String direciton);
+	
+	public Map<Object, Object> sitcanbechoose(int matchid, int playerid);
 }

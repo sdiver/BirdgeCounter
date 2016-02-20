@@ -18,7 +18,11 @@ public class count_match {
 	
 	private int match_cardnum;
 	
+	private int match_teamnum;
+	
 	private Date match_time;
+	
+	private int match_finish;
 
 	/**
 	 * @return the match_id
@@ -74,6 +78,34 @@ public class count_match {
 	 */
 	public void setMatch_time(Date match_time) {
 		this.match_time = match_time;
+	}
+
+	/**
+	 * @return the match_finish
+	 */
+	public int getMatch_finish() {
+		return match_finish;
+	}
+
+	/**
+	 * @param match_finish the match_finish to set
+	 */
+	public void setMatch_finish(int match_finish) {
+		this.match_finish = match_finish;
+	}
+
+	/**
+	 * @return the match_teamnum
+	 */
+	public int getMatch_teamnum() {
+		return match_teamnum;
+	}
+
+	/**
+	 * @param match_teamnum the match_teamnum to set
+	 */
+	public void setMatch_teamnum(int match_teamnum) {
+		this.match_teamnum = match_teamnum;
 	}
 	
 	

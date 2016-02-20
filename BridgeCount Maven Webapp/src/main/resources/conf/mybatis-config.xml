@@ -12,9 +12,9 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
          <typeAlias alias="count_desk" type="model.count_desk"/>
          <typeAlias alias="count_match_team" type="model.count_match_team"/>
          <typeAlias alias="count_match" type="model.count_match"/>
-         <typeAlias alias="count_mate" type="model.count_mate"/>
          <typeAlias alias="count_score" type="model.count_score"/>
-         <typeAlias alias="count_team" type="model.count_team"/>
+         <typeAlias alias="count_situation" type="model.count_situation"/>
+         <typeAlias alias="count_user" type="model.count_user"/>
     </typeAliases>
 
     <!-- 映射map -->

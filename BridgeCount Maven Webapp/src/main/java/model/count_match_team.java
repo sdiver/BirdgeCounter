@@ -13,6 +13,10 @@ public class count_match_team {
 	private int match_id;
 	
 	private int team_id;
+	
+	private String team_name;
+	
+	private int mate_id;
 
 	/**
 	 * @return the match_id
@@ -41,5 +45,34 @@ public class count_match_team {
 	public void setTeam_id(int team_id) {
 		this.team_id = team_id;
 	}
+
+	/**
+	 * @return the team_name
+	 */
+	public String getTeam_name() {
+		return team_name;
+	}
+
+	/**
+	 * @param team_name the team_name to set
+	 */
+	public void setTeam_name(String team_name) {
+		this.team_name = team_name;
+	}
+
+	/**
+	 * @return the mate_id
+	 */
+	public int getMate_id() {
+		return mate_id;
+	}
+
+	/**
+	 * @param mate_id the mate_id to set
+	 */
+	public void setMate_id(int mate_id) {
+		this.mate_id = mate_id;
+	}
+	
 	
 }
