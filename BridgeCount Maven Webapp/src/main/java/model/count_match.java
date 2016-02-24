@@ -8,11 +8,14 @@
 
 package model;
 
-import java.util.Date;
+import java.sql.Date;
+
 
 public class count_match {
 
 	private int match_id;
+	
+	private int match_code;
 	
 	private String match_name;
 	
@@ -106,6 +109,20 @@ public class count_match {
 	 */
 	public void setMatch_teamnum(int match_teamnum) {
 		this.match_teamnum = match_teamnum;
+	}
+
+	/**
+	 * @return the match_code
+	 */
+	public int getMatch_code() {
+		return match_code;
+	}
+
+	/**
+	 * @param match_code the match_code to set
+	 */
+	public void setMatch_code(int match_code) {
+		this.match_code = match_code;
 	}
 	
 	

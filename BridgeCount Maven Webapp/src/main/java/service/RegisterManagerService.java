@@ -19,7 +19,7 @@ import java.util.Map;
 
 public interface RegisterManagerService {
 
-	public Map<Object, Object> newplayer(String playername, String password);
+	public Map<Object, Object> newplayer(String playername, String username, String password);
 	
 	public Map<Object, Object> playerlogin(String username, String password);
 	
