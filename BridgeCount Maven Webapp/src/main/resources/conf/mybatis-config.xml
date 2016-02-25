@@ -16,6 +16,7 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
          <typeAlias alias="count_situation" type="model.count_situation"/>
          <typeAlias alias="count_user" type="model.count_user"/>
          <typeAlias alias="count_listteammate" type="model.count_listteammate"/>
+         <typeAlias alias="count_adddesk" type="model.count_adddesk"/>
     </typeAliases>
 
     <!-- 映射map -->

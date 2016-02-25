@@ -10,14 +10,14 @@ $(document).ready(function(){
 
 $("#but1").click(function(){ 
      $.ajax({ 
-        url:'http://127.0.0.1:8080/BridgeCount/Register/newplayer.do', 
+        url:'http://127.0.0.1:8080/BridgeCount/NewGame/addmatch.do', 
         type: "get", 
         async: false, 
         data:{
-        	playername:123,
-        	username:123,
-        	password:123
-        	
+        	matchname:123,
+        	matchteam:2,
+        	cardsnum:2,
+        	matchtime:2016-02-15
         },
         dataType: "jsonp", 
         jsonp: "callbackparam", //服务端用于接收callback调用的function名的参数  
