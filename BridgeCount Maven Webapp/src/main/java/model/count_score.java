@@ -24,7 +24,11 @@ public class count_score {
 	
 	private String score_firstcardid;
 	
-	private String score_solution;
+	private int score_solution;
+	
+	private int score_nssolution;
+	
+	private int score_ewsolution;
 
 	/**
 	 * @return the score_id
@@ -125,19 +129,45 @@ public class count_score {
 	}
 
 	/**
+	 * @return the score_nssolution
+	 */
+	public int getScore_nssolution() {
+		return score_nssolution;
+	}
+
+	/**
+	 * @param score_nssolution the score_nssolution to set
+	 */
+	public void setScore_nssolution(int score_nssolution) {
+		this.score_nssolution = score_nssolution;
+	}
+
+	/**
+	 * @return the score_ewsolution
+	 */
+	public int getScore_ewsolution() {
+		return score_ewsolution;
+	}
+
+	/**
+	 * @param score_ewsolution the score_ewsolution to set
+	 */
+	public void setScore_ewsolution(int score_ewsolution) {
+		this.score_ewsolution = score_ewsolution;
+	}
+
+	/**
 	 * @return the score_solution
 	 */
-	public String getScore_solution() {
+	public int getScore_solution() {
 		return score_solution;
 	}
 
 	/**
 	 * @param score_solution the score_solution to set
 	 */
-	public void setScore_solution(String score_solution) {
+	public void setScore_solution(int score_solution) {
 		this.score_solution = score_solution;
 	}
 
-	
-	
 }

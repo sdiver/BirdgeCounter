@@ -25,6 +25,22 @@ public class count_desk {
 	private int desk_east;
 	
 	private int desk_west;
+	
+	private int desk_lock;
+
+	/**
+	 * @return the desk_lock
+	 */
+	public int getDesk_lock() {
+		return desk_lock;
+	}
+
+	/**
+	 * @param desk_lock the desk_lock to set
+	 */
+	public void setDesk_lock(int desk_lock) {
+		this.desk_lock = desk_lock;
+	}
 
 	/**
 	 * @return the desk_id

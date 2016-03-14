@@ -33,9 +33,11 @@ import java.util.Map;
  */
 public interface MatchManagerService {
 
-	public Map<Object, Object> matchlist();
+	public Map<Object, Object> matchlist(int playerid);
 	
-	public Map<Object, Object> sitdown(int matchid, int deskid, int desknum, int ocpositon, int playerid, String direciton);
+	public Map<Object, Object> wheretosit(int matchid);
 	
-	public Map<Object, Object> sitcanbechoose(int matchid, int playerid);
+	public Map<Object, Object> sitdown(int matchid, int deskid, int playerid, int direction);
+	
+	public Map<Object, Object> getup(int matchid, int deskid, int playerid, int newplayerid);
 }

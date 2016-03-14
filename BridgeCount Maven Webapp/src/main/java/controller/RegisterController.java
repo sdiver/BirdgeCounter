@@ -21,6 +21,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.codehaus.jackson.map.util.JSONPObject;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -34,12 +36,16 @@ import service.RegisterManagerService;
 
 public class RegisterController {
 	
+	private static Logger logger = LoggerFactory.getLogger(RegisterController.class);
+	
 	@Autowired
 	private RegisterManagerService registermanagerservice;
 	
 	@RequestMapping(value = "/newplayer")
 	public @ResponseBody
 	JSONPObject newplayer(String callbackparam,String playername,String username,String password) throws Exception {
+		
+		logger.debug("TEST");
 		
 		Map<Object, Object> map = registermanagerservice.newplayer(playername, username, password);
 		
@@ -51,6 +57,8 @@ public class RegisterController {
 	public @ResponseBody
 	JSONPObject playerlogin(String callbackparam,String Lusername,String Lpassword) throws Exception {
 		
+		logger.debug("TEST");
+		
 		Map<Object, Object> map = registermanagerservice.playerlogin(Lusername, Lpassword);
 		
 		return new JSONPObject(callbackparam, map);
@@ -61,6 +69,8 @@ public class RegisterController {
 		public @ResponseBody
 		Map<Object, Object> playerjsonlogin(HttpServletRequest request,
 				HttpServletResponse response) throws Exception {
+			
+			logger.debug("TEST");
 			
 			String username = request.getParameter("Lusername") ;
 			

@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+
+<mapper namespace="mapper.calculationMapper" >
+
+	<resultMap type="model.count_deskcanchoose" id="desklistMap">
+  	
+	  	<result column="desk_id" property="desk_id" jdbcType="INTEGER" />
+	  	
+	  	<result column="desk_north" property="desk_north" jdbcType="INTEGER" />
+	  	
+	  	<result column="desk_south" property="desk_south" jdbcType="INTEGER" />
+	  	
+	  	<result column="desk_east" property="desk_east" jdbcType="INTEGER" />
+	  	
+	  	<result column="desk_west" property="desk_west" jdbcType="INTEGER" />
+	  	
+  </resultMap>
+
+  <select id="situation" parameterType="map" resultType="String">
+		
+		select 
+			
+			card_situation	
+		
+		from
+	
+			count_situation
+		
+		where card_num = #{card_num, jdbcType=VARCHAR}
+
+  </select>
+  
+  <select id="calculation" parameterType="map" resultType="java.lang.Integer">
+		
+		select 
+			
+			count_score 
+		
+		from
+			
+			count_scorelist
+			
+		where count_situation = #{count_situation, jdbcType=INTEGER}
+		
+		and count_declarationnumber = #{count_declartionnumber, jdbcType=INTEGER}
+		
+		and count_declarationcard = #{count_declarationcard, jdbcType=INTEGER}
+		
+		and count_solution = #{count_solution, jdbcType=INTEGER}
+		
+		and count_ifx = #{count_ifx, jdbcType=INTEGER}
+		
+  </select>
+
+  <select id="calculate" parameterType="map" resultType="java.lang.Integer">
+  
+  		select
+  			
+  			count_punishscore
+  			
+  		from
+  			
+  			count_pscorelist
+  			
+  		where count_situation = #{count_situation, jdbcType=INTEGER}
+  		
+  		and count_punishnum = #{count_punishnum, jdbcType=INTEGER}
+  		
+  		and count_ifx = #{count_ifx, jdbcType=INTEGER}
+  
+  </select>  
+  
+  <update id="updatescore" parameterType="map">
+  
+  	update count_score
+  	
+  	set
+  	
+  	 <if test="score_nssolution != null" >
+      
+        score_nssolution = #{score_nssolution,jdbcType=INTEGER},
+      
+     </if>
+     
+     <if test="score_ewsolution != null" >
+      
+        score_ewsolution = #{score_ewsolution,jdbcType=INTEGER},
+      
+     </if>
+     
+     score_declarationman = #{score_declarationman,jdbcType=INTEGER},
+     
+     score_declaration = #{score_declaration,jdbcType=VARCHAR},
+     
+     score_firstcard = #{score_firstcard,jdbcType=VARCHAR},
+     
+     score_solution = #{score_solution,jdbcType=INTEGER},
+     
+     where
+     	
+     	score_id = #{score_id,jdbcType=INTEGER}
+  
+  </update>
+  
+   <select id="userinfo" parameterType="map" resultMap="desklistMap">
+  
+  	
+  		select desk_id, match_id, desk_num, desk_ocpositon, desk_north, desk_south, desk_east, desk_west, desk_lock
+  		
+  		from count_desk
+  		
+  		where 
+  	
+  			desk_id =#{desk_id,jdbcType=INTEGER}  	
+
+  </select>
+  
+  <select id="scorelist" parameterType="map" resultType="count_score">
+  
+  		select * from
+  		
+  		count_score
+  		
+  		where match_id = #{match_id,jdbcType=INTEGER}
+  		
+  		and desk_id = #{desk_id,jdbcType=INTEGER}
+  
+  </select>
+ 
+ </mapper>

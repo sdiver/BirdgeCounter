@@ -23,7 +23,9 @@ import java.util.Map;
 
 import mapper.NewGameMapper;
 import model.count_adddesk;
+import model.count_listteammate;
 import model.count_score;
+import model.count_user;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -182,10 +184,13 @@ public class NewGameManagerServiceImpl implements NewGameManagerService {
 		
 		// TODO Auto-generated method stub
 		
+		List<count_user> listuser = newgamemapper.listmate();
 		
+		Map<Object, Object> result = new HashMap<Object, Object>();
+
+		result.put("result", listuser);
 		
-		
-		return null;
+		return result;
 	}
 
 	/* (non-Javadoc)
@@ -195,16 +200,58 @@ public class NewGameManagerServiceImpl implements NewGameManagerService {
 	@Transactional(rollbackFor=Exception.class)
 	
 	public Map<Object, Object> addmate(int matchid, int teamid, int mateid) {
+		
 		// TODO Auto-generated method stub
-		return null;
+		
+		Map<Object, Object> map = new HashMap<Object, Object>();
+		
+		map.put("matchid", matchid);
+		
+		map.put("teamid", teamid);
+		
+		map.put("mateid", mateid);
+		
+		int i = newgamemapper.checkmateid(map);
+		
+		Map<Object, Object> result = new HashMap<Object, Object>();
+		
+		if(i==0){
+			
+			newgamemapper.addmate(map);
+			
+			result.put("result", "success");
+			
+		}else{
+			
+			result.put("result", "false");
+		
+		}
+		
+		
+		
+		return result;
 	}
 
 	/* (non-Javadoc)
 	 * @see service.NewGameManagerService#listteammate(int, int)
 	 */
 	public Map<Object, Object> listteammate(int matchid, int teamid) {
+		
 		// TODO Auto-generated method stub
-		return null;
+		
+		Map<Object, Object> map = new HashMap<Object, Object>();
+		
+		map.put("matchid", matchid);
+		
+		map.put("teamid", teamid);
+		
+		List<count_listteammate> listplayer = newgamemapper.listteammate(map);
+		
+		Map<Object, Object> result = new HashMap<Object, Object>();
+
+		result.put("result", listplayer);
+		
+		return result;
 	}
 
 	/* (non-Javadoc)
@@ -214,8 +261,24 @@ public class NewGameManagerServiceImpl implements NewGameManagerService {
 	@Transactional(rollbackFor=Exception.class)
 	
 	public Map<Object, Object> deletemate(int matchid, int teamid, int mateid) {
+		
 		// TODO Auto-generated method stub
-		return null;
+		
+		Map<Object, Object> map = new HashMap<Object, Object>();
+		
+		map.put("matchid", matchid);
+		
+		map.put("teamid", teamid);
+		
+		map.put("mateid", mateid);
+		
+		newgamemapper.deletemate(map);
+		
+		Map<Object, Object> result = new HashMap<Object, Object>();
+		
+		result.put("result", "success");
+		
+		return result;
 	}
 
 }

@@ -26,6 +26,7 @@ import mapper.RegisterMapper;
 import model.count_user;
 import service.RegisterManagerService;
 import util.createRadomNumber;
+import util.encryption;
 
 @Service("RegisterManagerServiceImpl")
 public class RegisterManagerServiceImpl implements RegisterManagerService{
@@ -34,6 +35,9 @@ public class RegisterManagerServiceImpl implements RegisterManagerService{
 	private RegisterMapper registermapper;
 	
 	createRadomNumber random = new createRadomNumber();
+	
+	encryption code = new encryption();
+	
 	/* (non-Javadoc)
 	 * @see service.RegisterManagerService#newplayer(java.lang.String, java.lang.String)
 	 */
@@ -54,7 +58,7 @@ public class RegisterManagerServiceImpl implements RegisterManagerService{
 				
 					int i = 0;
 					
-					
+					String passcode = code.MD5(password);
 					
 					int randomNum = 0;
 					
@@ -90,7 +94,7 @@ public class RegisterManagerServiceImpl implements RegisterManagerService{
 					
 						map.put("username", username);
 					
-						map.put("userpassword", password);
+						map.put("userpassword", passcode);
 					
 						map.put("playername", playername);
 						
@@ -141,17 +145,19 @@ public class RegisterManagerServiceImpl implements RegisterManagerService{
 				
 				Map<Object, Object> map = new HashMap<Object, Object>();
 				
+				String passcode = code.MD5(password);
+				
 				map.put("username", username);
 			
-				map.put("userpassword", password);
+				map.put("userpassword", passcode);
 				
 				count_user player = registermapper.playerlogin(map);
 				
-				if( player.getUsername() != null){
+				if( player != null){
 					
 					result.put("player", player);
 					
-					result.put("result", "login success");
+					result.put("result", "success");
 				
 				}else{
 					

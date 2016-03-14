@@ -26,6 +26,8 @@ public class createRadomNumber {
 		int tmp = Math.abs(rand.nextInt());
 
 		return tmp % (max - min + 1) + min;
+		
+		
 
 	}
 }

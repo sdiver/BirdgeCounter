@@ -16,11 +16,13 @@
 
 public class main {
 	public static void main(String args[]){
-int desk = 10;
+		String m = "你好";
 		
-		for (int n = 1; n < desk+1; n++){
-			System.out.println (n);
-			
+		switch(m){
+		case "你好":System.out.println("fuck");break;
+		default:System.out.println("double fuck");break;
 		}
+	
+	
 	}
 }

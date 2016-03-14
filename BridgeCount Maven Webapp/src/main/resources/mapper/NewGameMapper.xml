@@ -90,7 +90,7 @@
   		
   			  and t.match_id = #{matchid,jdbcType=INTEGER}
   			  
-  			  <if test="teamid != null" >
+  			  <if test="teamid != 0" >
   			 	
   			 	 and t.team_id = #{teamid,jdbcType=INTEGER}
   			  
@@ -98,13 +98,25 @@
   
   </select>
   
+  <select id="checkmateid" parameterType="map" resultType="java.lang.Integer">
+  
+  	   select count(*) from count_match_team where
+  	   
+  	   match_id = #{matchid,jdbcType=INTEGER}
+  	   
+  	   and team_id = #{teamid,jdbcType=INTEGER}
+  	   
+  	   and mate_id = #{mateid,jdbcType=INTEGER}
+  	   
+  </select>
+
   <insert id="addmate" parameterType="map">
   
   	 insert into
   	 	
-  	 	count_match_team(match_id, team_id, team_name, mate_id)
+  	 	count_match_team(match_id, team_id, mate_id)
   	 	
-  	 values (#{matchid,jdbcType=INTEGER}, #{teamid,jdbcType=INTEGER}, #{teamname,jdbcType=VARCHAR}, #{mateid,jdbcType=INTEGER})
+  	 values (#{matchid,jdbcType=INTEGER}, #{teamid,jdbcType=INTEGER}, #{mateid,jdbcType=INTEGER})
   	 	
   </insert>
   

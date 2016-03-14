@@ -31,13 +31,15 @@ public interface NewGameMapper {
 	
 	public int searchmatchid(Map<Object, Object> map);
 	
+	public int checkmateid(Map<Object, Object> map);
+	
 	public void initdesk(List<count_adddesk> list);
 	
 	public List<Integer> listdeskid(Map<Object, Object> map);
 	
-	public count_user listmate();
+	public List<count_user> listmate();
 	
-	public count_listteammate listteammate(Map<Object, Object> map);
+	public List<count_listteammate> listteammate(Map<Object, Object> map);
 	
 	public void addmate(Map<Object, Object> map);
 	
